@@ -1,8 +1,20 @@
+import Champions from '@/components/champions'
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
-import Sprite from '../components/sprite'
 
-export default function Home() {
+import { Roboto } from "next/font/google"
+const roboto = Roboto({
+  weight: "400",
+  subsets: ["latin"],
+})
+
+type Champions = {
+  champions: {
+    name: string
+    sprite: string
+  }[]
+}
+
+export default function Home({champions}: Champions) {
   return (
     <>
       <Head>
@@ -11,11 +23,18 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>This is a header</header>
-      <main>
-        <Sprite />
+      <main className={roboto.className}>
+        <Champions champions={champions} />
       </main>
-      <footer>This is a footer</footer>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const response = await fetch(`${process.env.BASE_URL}/api/champions/sprites`)
+  return {
+    props: {
+      champions: await response.json()
+    }
+  }
 }
