@@ -31,7 +31,7 @@ export default function Home({champions}: Champions) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(`${process.env.BASE_URL}/api/champions/sprites`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/champions/sprites`)
   return {
     props: {
       champions: await response.json()
