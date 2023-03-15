@@ -1,3 +1,4 @@
+import Card from "../card"
 import style from "./style.module.css"
 
 type Champion = {
@@ -14,9 +15,9 @@ export default function({champions}: Champions) {
     <div className={`${style.grid}`}>{
       champions.map(({name, sprite}) => {
         return (
-          <div key={name} className={`${style.grid__item}`}>
-            <img draggable={false} src={sprite} className={`${style.item__image}`} alt={name}/>
-          </div>
+          <a key={name} href={`/champion/${name}`}>
+            <Card name={name} sprite={sprite} />
+          </a>
         )
       })
     }</div>
