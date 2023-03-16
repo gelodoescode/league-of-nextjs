@@ -2,6 +2,7 @@ import Champions from '@/components/champions'
 import Head from 'next/head'
 
 import { Roboto } from "next/font/google"
+import getChampions from '@/utils/getChampions'
 const roboto = Roboto({
   weight: "400",
   subsets: ["latin"],
@@ -31,10 +32,10 @@ export default function Home({champions}: Champions) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/champions/sprites`)
+  const champions = await getChampions()
   return {
     props: {
-      champions: await response.json()
+      champions
     }
   }
 }
