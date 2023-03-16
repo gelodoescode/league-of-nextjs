@@ -8,7 +8,7 @@ type Champion = {
 type Champions = Array<Champion>
 
 async function getSprites() {
-  const response = await fetch(`${process.env.BASE_URL}/api/champions`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/champions`)
   const champions = await response.json()
   return champions.map((champion: string) => {
     const data: Champion = {

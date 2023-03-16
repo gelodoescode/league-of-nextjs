@@ -10,52 +10,14 @@ body {
   min-height: 100vh;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  font-size: clamp(30px, 6vw, 50px);
-  font-weight: bold;
-  background: #2B3467;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  margin-block: 80px;
-  background: #2E3840;
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  background: #EB455F;
-  position: fixed;
-  height: 80px;
-  font-size: clamp(30px, 6vw, 50px);
-  font-weight: bold;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -10;
-}
-
 ::-webkit-scrollbar {
   width: 5px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #2B3467;
 }
+
 ::-webkit-scrollbar-track {
   background: white;
 }
